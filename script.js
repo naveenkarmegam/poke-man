@@ -78,38 +78,47 @@ function generate_cards(data, img_src, id) {
   const stat_defense = data.stats[2].base_stat;
   const stat_speed = data.stats[5].base_stat;
 
-//set themecolor based on pokemon type
-// access the typecolor-object
-const theme_color = typeColor[data.types[0].type.name]
-// console.log(data);
+  // set themecolor based on pokemon type
+  // access the typeColor-object
+  const theme_color = typeColor[data.types[0].type.name];
 
-  card.innerHTML = `
-    <p class="hp">
-      <span>HP</span>
-      ${hp}
-    </p>
-    <img src="${img_src}" class="poke-image" alt="${poke_name}">
-    <h2 class="poke-name">${poke_name}</h2>
-    <div class="types"></div>
-    <div class="stats">
-      <div>
-        <h3>${stat_attack}</h3>
-        <p>Attack</p>
-      </div>
-      <div>
-        <h3>${stat_defense}</h3>
-        <p>Defense</p>
-      </div>
-      <div>
-        <h3>${stat_speed}</h3>
-        <p>Speed</p>
-      </div>
-    </div>
-  `;
+  // Check if the image exists and if it doesn't, use the default image
+  const img = new Image();
+  img.src = img_src;
+  img.onerror = function () {
+    img.src = "https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/1.svg"; // Default image
+  };
 
-  append_types(data.types);
-  style_card(theme_color);
+  img.onload = function () {
+    card.innerHTML = `
+      <p class="hp">
+        <span>HP</span>
+        ${hp}
+      </p>
+      <img src="${img.src}" class="poke-image" alt="${poke_name}">
+      <h2 class="poke-name">${poke_name}</h2>
+      <div class="types"></div>
+      <div class="stats">
+        <div>
+          <h3>${stat_attack}</h3>
+          <p>Attack</p>
+        </div>
+        <div>
+          <h3>${stat_defense}</h3>
+          <p>Defense</p>
+        </div>
+        <div>
+          <h3>${stat_speed}</h3>
+          <p>Speed</p>
+        </div>
+      </div>
+    `;
+
+    append_types(data.types);
+    style_card(theme_color);
+  };
 }
+
 
 function append_types(types) {
   types.forEach((item) => {
