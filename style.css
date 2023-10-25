@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&family=Poppins:wght@100;200;300;400;500;600;800;900&family=Roboto&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #eff3ff;
+
+}
+
+/* .conatianer{
+    width: 350px;
+    border: 1px solid black;
+    position: absolute;
+    transform: translate(-50%,50%);
+    top: 50%;
+    left: 50%;
+} */
+#card {
+    width: 100%;
+    padding: 30px 20px;
+    border: 1px solid black;
+    /* background: radial-gradient(circle at 50% 0%, orange 36%, #fff 36%) !important; */
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+#card img {
+    display: block;
+    width: 180px;
+    max-height: 200px;
+    position: relative;
+    margin: 20px auto;
+}
+.hp {
+    width: 80px;
+    background-color: #fff;
+    text-align: center;
+    padding: 8px 0;
+    border-radius: 30px;
+    margin-left: auto;
+    margin-right: 20px;
+    font-weight: 400;
+    border: 1px solid black;
+}
+.poke-name {
+    text-align: center;
+    font-style: 600;
+}
+.types {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0 40px;
+}
+.hp span,.types span {
+    font-size: 12px;
+    letter-spacing: 0.4px;
+    font-weight: 600;
+}
+.types span {
+    padding: 5px 20px;
+    border-radius:20px ;
+    color: #fff;
+}
+.stats {
+   display: flex;
+   align-items: center;
+   justify-content: space-between; 
+   text-align: center;
+}
+.stats p{
+    columns: #404060;
+}
+button {
+    padding: 15px 60px !important;
+    font-size: 18px !important;
+    color: #fff !important;
+}
